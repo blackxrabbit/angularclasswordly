@@ -1,0 +1,31 @@
+<form [formGroup]="authForm" action="" fxLayout="column" fxLayoutAlign="start center" fxLayoutGap="2px">
+    <h2>LOG IN</h2>
+    <mat-form-field color="primary" appearance="outline">
+      <mat-label>Email</mat-label>
+      <input type="email" matInput placeholder="Email" formControlName="email">
+      <mat-error *ngIf="emailControl.errors?.email">Need a valid email</mat-error>
+      <mat-error *ngIf="emailControl.errors?.required">This is a required Field</mat-error>
+      
+    </mat-form-field>
+  
+    <mat-form-field color="primary" appearance="outline">
+      <mat-label>Password</mat-label>
+      <input type="password" matInput placeholder="Password" formControlName="password">
+      <mat-error *ngIf="pwControl.errors?.required">This is a required Field</mat-error>
+      <mat-error *ngIf="pwControl.errors?.minlength">Minimum required character is 8 but you input {{pwControl.errors?.minlength.actualLength}}</mat-error>
+    </mat-form-field>
+
+    <mat-form-field color="primary" appearance="outline">
+        <mat-label>Retype Password</mat-label>
+        <input type="password" matInput placeholder="Password" formControlName="retypePassword">
+        <mat-error *ngIf="retypePWControl.errors?.notthesame">{{retypePWControl.errors.notthesame}}</mat-error>
+      </mat-form-field>
+
+      <mat-form-field color="primary" appearance="outline">
+          <mat-label>Username</mat-label>
+          <input type="text" matInput placeholder="Password" formControlName="username">
+          <mat-error *ngIf="usernameControl.errors?.required">This is a required Field</mat-error>
+        </mat-form-field>
+  
+    <button type="button" [disabled]="authForm.invalid" (click)="signUp()" mat-raised-button color="accent">Sign Up</button>
+  </form>

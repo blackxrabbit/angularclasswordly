@@ -1,0 +1,12 @@
+<div fxLayout="column" fxLayoutAlign="start center">
+    <h3>What's in your mind?</h3>
+    <mat-form-field appearance="outline">
+      <textarea matInput [formControl]="message" rows="5"></textarea>
+      <p matSuffix fxLayout="column" fxLayoutAlign="center center">
+        
+      <mat-hint>{{message.value?.length + 0}}/180</mat-hint>
+      <button mat-raised-button (click)="postMessage()" [disabled]="message.invalid" color="accent">Post</button>
+      </p>
+    </mat-form-field>
+    
+  </div>

@@ -3,7 +3,16 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  firebase: {
+    apiKey: "AIzaSyDWTuW3rJZQspV04_bNiknYelRzPOluRcE",
+    authDomain: "mywordlyapp.firebaseapp.com",
+    databaseURL: "https://mywordlyapp.firebaseio.com",
+    projectId: "mywordlyapp",
+    storageBucket: "mywordlyapp.appspot.com",
+    messagingSenderId: "167907930048",
+    appId: "1:167907930048:web:256dae0a50f5e54d"
+  }
 };
 
 /*

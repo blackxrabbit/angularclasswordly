@@ -1,0 +1,21 @@
+<div class="container" fxLayout="column" fxLayoutAlign="center center">
+  <form *ngIf="!signUp" [formGroup]="authForm" action="" fxLayout="column" fxLayoutAlign="start center"
+    fxLayoutGap="8px">
+    <h2>LOG IN</h2>
+    <mat-form-field color="primary" appearance="outline">
+      <mat-label>Email</mat-label>
+      <input type="email" matInput placeholder="Email" formControlName="email">
+    </mat-form-field>
+
+    <mat-form-field color="primary" appearance="outline">
+      <mat-label>Password</mat-label>
+      <input type="password" matInput placeholder="Password" formControlName="password">
+    </mat-form-field>
+
+    <button type="button" [disabled]="authForm.invalid" (click)="loginUser()" mat-raised-button color="accent">Log
+      In</button>
+  </form>
+  <app-signup (doneSignUp)="doneCreatingUser($event)" *ngIf="signUp"></app-signup>
+  <p *ngIf="!signUp">Don't have an account yet? <button mat-button (click)="signUp = !signUp">Sign Up</button></p>
+  <p *ngIf="signUp">Already have an account? <button mat-button (click)="signUp = !signUp">Login</button></p>
+</div>
